@@ -2,18 +2,18 @@
 import { useState, useEffect } from "react";
 
 export default function UpcomingPage() {
-  const targetDate = new Date("2024-11-16T23:59:59").getTime(); // Set your target date here
+  const targetDate = new Date("2024-11-16T23:59:59").getTime();
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
 
   useEffect(() => {
     const calculateTimeLeft = () => targetDate - new Date().getTime();
-    setTimeLeft(calculateTimeLeft()); // Initialize countdown on client
+    setTimeLeft(calculateTimeLeft());
 
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(interval); // Clean up interval on unmount
+    return () => clearInterval(interval);
   }, [targetDate]);
 
   const getTimeUnits = (time: number) => {

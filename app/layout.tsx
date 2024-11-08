@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "InnoNexus",
     images: [
       {
-        url: "https://innonex.us/logo.png",
+        url: "https://innonex.us/logo.svg",
         width: 800,
         height: 600,
         alt: "InnoNexus Logo",
@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     creator: "@InnoNexus",
     site: "@InnoNexus",
     card: "summary_large_image",
+  },
+  icons: {
+    icon: "/logo.svg",
   },
 };
 
