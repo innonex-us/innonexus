@@ -26,7 +26,7 @@ export default function UpcomingPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white px-4">
       <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-bounce">
-        We're Launching Soon!
+        We&apos;re Launching Soon!
       </h1>
       <p className="text-xl md:text-2xl mb-12 text-gray-300">
         Stay tuned for something amazing.
