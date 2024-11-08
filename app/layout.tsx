@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "InnoNexus",
     images: [
       {
-        url: "https://innonex.us/og-image.png",
+        url: "https://innonex.us/logo.png",
         width: 1200,
         height: 630,
         alt: "InnoNexus - Empowering Innovation",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     creator: "@InnoNexus",
     title: "InnoNexus - Empowering Innovation Across the Digital Spectrum",
     description: "Discover how InnoNexus leverages cutting-edge technology to transform ideas into reality.",
-    images: ["https://innonex.us/og-image.png"],
+    images: ["https://innonex.us/logo.png"],
   },
   icons: {
     icon: [
