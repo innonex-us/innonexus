@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "InnoNexus",
     images: [
       {
-        url: "https://innonex.us/logo.svg",
+        url: "https://innonex.us/og-image.png",
         width: 1200,
         height: 630,
         alt: "InnoNexus - Empowering Innovation",
@@ -41,11 +41,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@InnoNexus",
     creator: "@InnoNexus",
-    images: ["https://innonex.us/logo.svg"],
+    title: "InnoNexus - Empowering Innovation Across the Digital Spectrum",
+    description: "Discover how InnoNexus leverages cutting-edge technology to transform ideas into reality.",
+    images: ["https://innonex.us/og-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
   },
   manifest: "/manifest.json",
   robots: {
@@ -59,6 +66,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: "https://innonex.us",
+  },
 };
 
 export const viewport: Viewport = {
@@ -66,6 +76,8 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -75,6 +87,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href="https://innonex.us" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
