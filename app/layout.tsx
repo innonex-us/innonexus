@@ -16,6 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://innonex.us'),
   title: "InnoNexus - Empowering Innovation Across the Digital Spectrum",
   description:
     "InnoNexus is a technology-driven company specializing in blockchain, Web 3.0, mobile development, and AI solutions. We provide customized digital solutions for businesses across industries, driving innovation and growth.",
@@ -27,22 +28,24 @@ export const metadata: Metadata = {
     siteName: "InnoNexus",
     images: [
       {
-        url: "https://innonex.us/logo.svg",
-        width: 800,
-        height: 600,
-        alt: "InnoNexus Logo",
+        url: "https://innonex.us/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "InnoNexus - Empowering Innovation",
       },
     ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
-    creator: "@InnoNexus",
-    site: "@InnoNexus",
     card: "summary_large_image",
+    site: "@InnoNexus",
+    creator: "@InnoNexus",
+    images: ["https://innonex.us/og-image.png"],
   },
   icons: {
-    icon: "/logo.svg",
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
   robots: {
@@ -57,6 +60,7 @@ export const metadata: Metadata = {
     },
   },
 };
+
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
