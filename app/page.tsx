@@ -55,12 +55,12 @@ export default function UpcomingPage() {
           <span className="text-gray-400">Seconds</span>
         </div>
       </div>
-      {/* <p className="mt-10 text-gray-400 text-center">
+      <p className="mt-10 text-gray-400 text-center">
         Follow us on social media for updates:{" "}
-        <a href="#" className="underline text-blue-400">Twitter</a>,{" "}
-        <a href="#" className="underline text-blue-400">LinkedIn</a>,{" "}
-        <a href="#" className="underline text-blue-400">GitHub</a>
-      </p> */}
+        <a href="https://x.com/inn0nexus" target="_blank" className="underline text-blue-400">Twitter</a>,{" "}
+        <a href="https://www.linkedin.com/company/inno-nexus/" target="_blank" className="underline text-blue-400">LinkedIn</a>,{" "}
+        <a href="https://github.com/innonex-us" target="_blank" className="underline text-blue-400">GitHub</a>
+      </p>
     </div>
   );
 }
