@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 export default function UpcomingPage() {
-  const targetDate = new Date("2024-11-16T23:59:59").getTime();
+  const targetDate = new Date("2024-11-20T23:59:59").getTime();
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
 
   useEffect(() => {
