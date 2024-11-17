@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const testimonials = [
     {
@@ -70,10 +71,12 @@ const TestimonialsPartners: React.FC = () => {
                         transition={{ duration: 0.5 }}
                         key={activeTestimonial}
                     >
-                        <img
+                        <Image
                             src={testimonials[activeTestimonial].image}
                             alt={testimonials[activeTestimonial].name}
-                            className="mx-auto w-24 h-24 rounded-full object-cover shadow-md"
+                            className="mx-auto object-cover"
+                            width={80}
+                            height={80}
                         />
                         <p className="mt-6 text-lg text-gray-600">
                         &quot;{testimonials[activeTestimonial].feedback}&quot;

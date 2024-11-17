@@ -1,6 +1,7 @@
 "use client";
 
 import { Player } from "@lottiefiles/react-lottie-player";
+import Image from "next/image";
 
 const page: React.FC = () => {
     return (
@@ -105,10 +106,12 @@ const page: React.FC = () => {
                             key={index}
                             className="text-center bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition"
                         >
-                            <img
+                            <Image
                                 src={teamMember.image}
                                 alt={teamMember.name}
-                                className="mx-auto w-24 h-24 rounded-full object-cover shadow-md"
+                                className="mx-auto rounded-full object-cover shadow-md"
+                                width={80}
+                                height={80}
                             />
                             <h3 className="mt-4 text-xl font-semibold text-gray-800">
                                 {teamMember.name}

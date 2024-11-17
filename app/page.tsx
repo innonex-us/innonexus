@@ -5,7 +5,7 @@ import AboutUsSnippet from './components/AboutUsSnippet';
 import ServicesOverview from './components/ServicesOverview';
 import CaseStudiesSnippet from './components/CaseStudiesSnippet';
 import TestimonialsPartners from './components/TestimonialsPartners';
-import CTASection from './components/CTASection';
+// import CTASection from './components/CTASection';
 
 const page = () => {
   return (
