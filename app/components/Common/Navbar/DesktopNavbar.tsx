@@ -13,7 +13,7 @@ const DesktopNavbar: React.FC = () => {
     const isActive = (path: string) => pathname === path;
 
     return (
-        <div className="flex items-center space-x-6 px-4 py-2">
+        <div className="flex items-center space-x-6 px-4 py-2 ">
             <NavLink
                 href="/"
                 icon={<AiOutlineHome />}
@@ -58,16 +58,15 @@ const NavLink: React.FC<{
     return (
         <Link href={href}>
             <p
-                className={`relative flex items-center px-4 py-2 rounded-md font-semibold transition-all duration-300 ${
-                    isActive
-                        ? "text-white" // Active link color
-                        : "text-gray-500 hover:text-white"
-                }`}
+                className={`relative flex items-center px-4 py-2 rounded-md font-semibold transition-all duration-300 ${isActive
+                        ? "text-white bg-gradient-to-r from-[#7B61FF] to-[#4BB4FF]" // Active link gradient background
+                        : "text-gray-200 hover:text-white"
+                    }`}
             >
                 <span className="text-lg mr-2">{icon}</span>
                 <span>{label}</span>
                 {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#5E17EB] to-[#1CDAFF] animate-pulse"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#7B61FF] to-[#4BB4FF] animate-pulse"></span>
                 )}
             </p>
         </Link>

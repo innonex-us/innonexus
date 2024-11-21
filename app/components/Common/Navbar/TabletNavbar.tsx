@@ -15,10 +15,10 @@ const TabletNavbar: React.FC = () => {
 
     return (
         <>
-            {/* Hamburger Icon for Drawer */}
+            {/* Hamburger Icon */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:flex hidden text-white bg-[#5E17EB] hover:bg-[#1CDAFF] focus:outline-none p-2 rounded-md fixed top-4 right-4 z-50"
+                className="md:flex hidden text-white focus:outline-none p-3 rounded-md fixed top-4 right-4 z-50 shadow-lg"
             >
                 <svg
                     className="h-6 w-6"
@@ -51,7 +51,7 @@ const TabletNavbar: React.FC = () => {
                     }`}
             >
                 {/* Drawer Header */}
-                <div className="flex justify-between items-center p-4 bg-gradient-to-r from-[#5E17EB] to-[#1CDAFF] text-white">
+                <div className="flex justify-between items-center p-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md">
                     <span className="text-xl font-semibold">Menu</span>
                     <button
                         onClick={() => setIsOpen(false)}
@@ -125,8 +125,8 @@ const NavLink: React.FC<{
         <Link href={href}>
             <p
                 className={`flex items-center px-4 py-2 rounded-md text-lg transition-all duration-300 ${isActive
-                        ? "bg-[#5E17EB] text-white"
-                        : "text-gray-600 hover:bg-gray-100 hover:text-black"
+                        ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+                        : "text-gray-700 hover:bg-gray-100 hover:text-black"
                     }`}
             >
                 <span className="text-xl mr-3">{icon}</span>

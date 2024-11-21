@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
     return (
         <>
             {/* Top Navigation */}
-            <header className="fixed top-0 w-full z-50 bg-gradient-to-r from-[#5E17EB] to-[#1CDAFF] text-white shadow-lg backdrop-blur-md">
+            <header className="fixed top-0 w-full z-50 bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 text-white shadow-lg backdrop-blur-md">
                 <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
                     {/* Logo */}
                     <div className="flex-shrink-0 items-center">
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
                                 height={40}
                                 width={40}
                             />
-                            <span className="tracking-wide">InnoNexus</span>
+                            <span className="tracking-wide text-white">InnoNexus</span>
                         </Link>
                     </div>
 
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Bottom Navigation for Mobile */}
-            <div className="lg:hidden md:hidden fixed bottom-0 w-full">
+            <div className="lg:hidden md:hidden fixed bottom-0 w-full bg-gradient-to-r from-blue-700 to-purple-700 text-white shadow-lg z-20">
                 <BottomNavigation />
             </div>
         </>

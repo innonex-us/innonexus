@@ -1,52 +1,66 @@
-"use client";
-
+import { motion } from "framer-motion";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-const HeroSection: React.FC = () => {
-    return (
-        <section className="relative bg-white text-gray-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center py-20 lg:py-32">
-                {/* Left Text Content */}
-                <div className="text-center lg:text-left lg:w-1/2">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                        Empowering Innovation<br />
-                        Across the Digital Spectrum
-                    </h1>
-                    <p className="mt-6 text-lg sm:text-xl text-gray-700">
-                        At InnoNexus, we push boundaries with cutting-edge technology solutions in blockchain, Web 3.0, AI, and more.
-                    </p>
-                    <div className="mt-8 flex justify-center lg:justify-start space-x-4">
-                        <a
-                            href="/about"
-                            className="bg-[#5E17EB] text-white px-6 py-3 rounded-md text-lg font-semibold shadow-lg hover:bg-[#1CDAFF] transition"
-                        >
-                            Learn More
-                        </a>
-                        <a
-                            href="/contact"
-                            className="bg-gray-100 text-[#5E17EB] border border-[#5E17EB] px-6 py-3 rounded-md text-lg font-semibold shadow-lg hover:bg-[#5E17EB] hover:text-white transition"
-                        >
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
+const HeroSection = () => {
+  return (
+    <section className="relative flex items-center justify-center min-h-screen px-6">
+      {/* Content */}
+      <div className="text-center max-w-4xl z-10">
+        <motion.h1
+          className="text-5xl md:text-7xl font-extrabold leading-tight bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Empowering Innovation Across the Digital Spectrum
+        </motion.h1>
+        <motion.p
+          className="mt-6 text-lg md:text-2xl text-gray-300"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+        >
+          InnoNexus transforms businesses with cutting-edge technologies, from
+          blockchain to AI, tailored for your success.
+        </motion.p>
+        <motion.div
+          className="mt-8 flex justify-center space-x-6"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2 }}
+        >
+          <a
+            href="#services"
+            className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            Learn More
+          </a>
+          <a
+            href="#contact"
+            className="bg-white text-black px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            Contact Us
+          </a>
+        </motion.div>
+      </div>
 
-                {/* Right Visual Content with Lottie Animation (Hidden on mobile) */}
-                <div className="hidden sm:flex lg:w-1/2 justify-center">
-                    <Player
-                        autoplay
-                        loop
-                        src="./animations/hero-animation.json" // Replace with your Lottie animation path or URL
-                        className="w-full max-w-md lg:max-w-lg"
-                    />
-                </div>
-            </div>
-
-            {/* Decorative Shapes */}
-            <div className="absolute top-0 left-0 w-48 h-48 bg-[#5E17EB]/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#1CDAFF]/10 rounded-full blur-3xl"></div>
-        </section>
-    );
+      {/* Animation */}
+      <motion.div
+        className="absolute bottom-0 right-0 max-w-xl z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 3 }}
+      >
+        <Player
+          autoplay
+          loop
+          // src="https://assets10.lottiefiles.com/packages/lf20_t9gkkhz4.json"
+          src={"/animations/hero-animation.json"}
+          className="w-full h-auto opacity-20"
+        />
+      </motion.div>
+    </section>
+  );
 };
 
 export default HeroSection;
