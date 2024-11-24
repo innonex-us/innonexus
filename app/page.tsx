@@ -1,22 +1,37 @@
-"use client";
-import React from 'react';
-import HeroSection from './components/HeroSection';
-import ServicesSection from './components/ServicesSection';
-import CaseStudiesSection from './components/CaseStudiesSection';
-import Team from './components/teamMembers';
-import Contact from './components/Contact';
+"use client"
 
+import { useEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Header from "./components/Header"
+import MobileNavbar from "./components/MobileNavbar"
+import Hero from "./components/Hero"
+import About from "./components/About"
+import Services from "./components/Services"
+import Industries from "./components/Industries"
+import Technology from "./components/Technology"
+import Contact from "./components/Contact"
 
-const page = () => {
+gsap.registerPlugin(ScrollTrigger)
+
+export default function Home() {
+  useEffect(() => {
+    // Initialize any global animations or ScrollTriggers here
+  }, [])
+
   return (
-    <div>
-      <HeroSection />
-      <ServicesSection />
-      <CaseStudiesSection />
-      <Team />
-      <Contact />
-    </div>
-  );
-};
+    <main className="bg-black text-white">
+      <div className="smooth-scroll">
+        <Header />
+        <Hero />
+        <About />
+        <Services />
+        <Industries />
+        <Technology />
+        <Contact />
+        <MobileNavbar />
+      </div>
+    </main>
+  )
+}
 
-export default page;

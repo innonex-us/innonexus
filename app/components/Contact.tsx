@@ -1,77 +1,79 @@
-'use client'
+"use client"
 
-import React from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { MapPin, Phone, Mail } from 'lucide-react'
-import { useToast } from '@/hooks/use-toast'
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
 
 export default function Contact() {
-    const { toast } = useToast()
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const formRef = useRef<HTMLFormElement>(null)
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        // Here you would typically handle the form submission,
-        // e.g., sending the data to an API
-        toast({
-            title: "Message Sent",
-            description: "We've received your message and will get back to you soon.",
-        })
-    }
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+      },
+    })
 
-    return (
-        <section className="py-16 bg-gradient-to-b from-gray-800 to-gray-900">
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-white mb-12">Get in Touch</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <Card className="bg-gray-800 border-gray-700">
-                        <CardHeader>
-                            <CardTitle className="text-2xl font-semibold text-white">Contact Information</CardTitle>
-                            <CardDescription className="text-gray-400">Reach out to us for any inquiries</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <div className="flex items-center text-gray-400">
-                                <MapPin className="w-5 h-5 mr-2" />
-                                <span>1128 Vine Street, Waukegan, Illinois, USA - 60085</span>
-                            </div>
-                            <div className="flex items-center text-gray-400">
-                                <Phone className="w-5 h-5 mr-2" />
-                                <span>+1 (123) 456-7890</span>
-                            </div>
-                            <div className="flex items-center text-gray-400">
-                                <Mail className="w-5 h-5 mr-2" />
-                                <span>rokon@innonex.us</span>
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-gray-800 border-gray-700">
-                        <CardHeader>
-                            <CardTitle className="text-2xl font-semibold text-white">Send us a Message</CardTitle>
-                            <CardDescription className="text-gray-400">We&apos;d love to hear from you</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1">Name</label>
-                                    <Input id="name" placeholder="Your Name" className="bg-gray-700 text-white border-gray-600" required />
-                                </div>
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-1">Email</label>
-                                    <Input id="email" type="email" placeholder="your@email.com" className="bg-gray-700 text-white border-gray-600" required />
-                                </div>
-                                <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-1">Message</label>
-                                    <Textarea id="message" placeholder="Your message" className="bg-gray-700 text-white border-gray-600" required />
-                                </div>
-                                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">Send Message</Button>
-                            </form>
-                        </CardContent>
-                    </Card>
-                </div>
-            </div>
-        </section>
-    )
+    tl.from(titleRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    })
+    .from(formRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+    }, "-=0.5")
+  }, [])
+
+  return (
+    <section ref={sectionRef} id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-black">
+      <div className="container mx-auto px-6">
+        <h2 ref={titleRef} className="text-5xl font-bold mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+          Contact Us
+        </h2>
+        <form ref={formRef} className="max-w-lg mx-auto bg-gray-800 bg-opacity-50 p-8 rounded-lg shadow-2xl">
+          <div className="mb-6">
+            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-300">Name</label>
+            <input
+              type="text"
+              id="name"
+              className="w-full p-3 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">Email</label>
+            <input
+              type="email"
+              id="email"
+              className="w-full p-3 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-300">Message</label>
+            <textarea
+              id="message"
+              rows={4}
+              className="w-full p-3 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue
+-400 transition-all duration-300"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition-colors duration-300 transform hover:scale-105"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  )
 }
 
