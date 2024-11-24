@@ -1,76 +1,54 @@
+import React from "react";
 import Link from "next/link";
-import { AiOutlineHome } from "react-icons/ai";
-import { RiInformationLine } from "react-icons/ri";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsBuilding } from "react-icons/bs";
-import { MdMiscellaneousServices } from "react-icons/md";
 import { usePathname } from "next/navigation";
+import { FiHome, FiSettings, FiInfo, FiPhone } from "react-icons/fi";
+import { ThemeToggle } from './theme-toggle';
 
 const DesktopNavbar: React.FC = () => {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    // Function to determine active link
-    const isActive = (path: string) => pathname === path;
+  const links = [
+    { href: "/", label: "Home", icon: <FiHome size={20} /> },
+    { href: "/services", label: "Services", icon: <FiSettings size={20} /> },
+    { href: "/about", label: "About", icon: <FiInfo size={20} /> },
+    { href: "/contact", label: "Contact", icon: <FiPhone size={20} /> },
+  ];
 
-    return (
-        <div className="flex items-center space-x-6 px-4 py-2 ">
-            <NavLink
-                href="/"
-                icon={<AiOutlineHome />}
-                label="Home"
-                isActive={isActive("/")}
-            />
-            <NavLink
-                href="/about"
-                icon={<RiInformationLine />}
-                label="About Us"
-                isActive={isActive("/about")}
-            />
-            <NavLink
-                href="/services"
-                icon={<MdMiscellaneousServices />}
-                label="Services"
-                isActive={isActive("/services")}
-            />
-            <NavLink
-                href="/industries"
-                icon={<BsBuilding />}
-                label="Industries"
-                isActive={isActive("/industries")}
-            />
-            <NavLink
-                href="/contact"
-                icon={<HiOutlineMail />}
-                label="Contact"
-                isActive={isActive("/contact")}
-            />
+  return (
+    <nav className="bg-gradient-to-r from-[#512153] via-[#492b72] to-[#342a59] px-8 py-4 shadow-lg">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <div className="text-3xl font-bold text-white glow-text">InnoNexus</div>
+
+        {/* Navigation Links */}
+        <div className="flex space-x-8 items-center">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href}>
+              <span
+                className={`flex items-center gap-3 text-lg transition-all duration-300 ${
+                  pathname === link.href
+                    ? "text-[#c69df1] glow-link"
+                    : "text-gray-300 hover:text-[#c69df1] hover:glow-link"
+                }`}
+              >
+                {React.cloneElement(link.icon, {
+                  size: 24,
+                  className: `${
+                    pathname === link.href
+                      ? "text-[#c69df1] glow-icon"
+                      : "text-gray-300 hover:text-[#c69df1] glow-icon"
+                  }`,
+                })}
+                {link.label}
+              </span>
+            </Link>
+          ))}
+          <ThemeToggle />
         </div>
-    );
-};
-
-// A reusable NavLink component for consistency and simplicity
-const NavLink: React.FC<{
-    href: string;
-    icon: React.ReactNode;
-    label: string;
-    isActive: boolean;
-}> = ({ href, icon, label, isActive }) => {
-    return (
-        <Link href={href}>
-            <p
-                className={`relative flex items-center px-4 py-2 rounded-md font-semibold transition-all duration-300 ${isActive
-                        ? "text-white bg-gradient-to-r from-[#7B61FF] to-[#4BB4FF]" // Active link gradient background
-                        : "text-gray-200 hover:text-white"
-                    }`}
-            >
-                <span className="text-lg mr-2">{icon}</span>
-                <span>{label}</span>
-                {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#7B61FF] to-[#4BB4FF] animate-pulse"></span>
-                )}
-            </p>
-        </Link>
-    );
+      </div>
+    </nav>
+  );
 };
 
 export default DesktopNavbar;
+

@@ -2,8 +2,9 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
 import ServicesSection from './components/ServicesSection';
-import IndustriesSection from './components/IndustriesSection';
 import CaseStudiesSection from './components/CaseStudiesSection';
+import Team from './components/teamMembers';
+import Contact from './components/Contact';
 
 
 const page = () => {
@@ -11,8 +12,9 @@ const page = () => {
     <div>
       <HeroSection />
       <ServicesSection />
-      <IndustriesSection />
       <CaseStudiesSection />
+      <Team />
+      <Contact />
     </div>
   );
 };
