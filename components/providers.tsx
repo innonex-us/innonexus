@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-    
+
     // Set up smooth scrolling
     const smoothScroll = (content: Element, viewport: Element, smoothness: number) => {
       content = content || document.querySelector("#smooth-content")!
@@ -30,7 +30,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           const scrollHeight = content.scrollHeight
           const viewportHeight = viewport.clientHeight
           const scrollRange = scrollHeight - viewportHeight
-          self.end = scrollRange
+          self.scroll(self.start)
         }
       })
 
@@ -44,7 +44,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         const scrollHeight = content.scrollHeight
         const viewportHeight = viewport.clientHeight
         const scrollRange = scrollHeight - viewportHeight
-        st.end = scrollRange
+        st.scroll(scrollRange)
       }
 
       ScrollTrigger.addEventListener("refresh", onResize)
@@ -58,14 +58,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
         target = Math.min(Math.max(target + e.deltaY, 0), st.end)
       }
 
-      viewport.addEventListener("wheel", onWheel)
+      viewport.addEventListener("wheel", onWheel as EventListener)
 
       updateScroll()
 
       return () => {
         ScrollTrigger.removeEventListener("refresh", onResize)
         window.removeEventListener("resize", onResize)
-        viewport.removeEventListener("wheel", onWheel)
+        viewport.removeEventListener("wheel", onWheel as EventListener)
         resizeObserver.disconnect()
         st.kill()
       }
