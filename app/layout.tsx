@@ -1,29 +1,29 @@
-import type { Metadata } from "next"
-import { Space_Mono } from "next/font/google"
-import "./globals.css"
+import "@/styles/globals.css"
+import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Nav } from "@/components/nav"
+import { Footer } from "@/components/footer"
 
-const spaceMono = Space_Mono({ 
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  variable: '--font-space-mono'
-})
+const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "InnoNexus - Web3 Innovation Hub",
-  description: "Empowering the next generation of Web3 builders and innovators.",
+export const metadata = {
+  title: "InnoNexus - Empowering Innovation Across the Digital Spectrum",
+  description: "Next-generation technology solutions provider dedicated to pushing the boundaries of what's possible in the digital world.",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${spaceMono.variable} font-mono`}>
-        <div className="min-h-screen bg-black">
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} overflow-x-hidden`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Nav />
           {children}
-        </div>
+          <Footer />
+        </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
