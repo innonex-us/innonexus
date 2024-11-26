@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-
+    
     // Set up smooth scrolling
     const smoothScroll = (content: Element, viewport: Element, smoothness: number) => {
       content = content || document.querySelector("#smooth-content")!
@@ -30,7 +30,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           const scrollHeight = content.scrollHeight
           const viewportHeight = viewport.clientHeight
           const scrollRange = scrollHeight - viewportHeight
-          self.scroll(self.start)
+          self.scroll(scrollRange)
         }
       })
 

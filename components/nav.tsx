@@ -9,13 +9,12 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { cn } from "@/lib/utils"
 
 const links = [
-  { href: "#", label: "Our Programs" },
-  { href: "#", label: "Portfolio" },
-  { href: "#", label: "Media" },
-  { href: "#", label: "Reviews" },
-  { href: "#", label: "Team" },
-  { href: "#", label: "FAQ" },
-  { href: "#", label: "Blog" },
+  { href: "/services", label: "Our Services" },
+  { href: "/industries", label: "Industries" },
+  { href: "/technology", label: "Technology" },
+  { href: "/team", label: "Our Team" },
+  { href: "/case-studies", label: "Case Studies" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export function Nav() {
@@ -26,7 +25,8 @@ export function Nav() {
       <nav className="container flex items-center justify-between h-16 gap-4 md:h-20">
         <Link href="/" className="flex items-center gap-2 font-bold">
           <span className="sr-only">InnoNexus</span>
-          <img src="/placeholder.svg?height=32&width=32" alt="Logo" className="w-8 h-8" />
+          <img src="/favicon.png" alt="InnoNexus Logo" className="w-8 h-8" />
+          <span className="hidden md:inline-block">InnoNexus</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
@@ -43,10 +43,10 @@ export function Nav() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Link href="#" className="hidden md:block">
-            <Button variant="ghost">Our Ecosystem</Button>
+          <Link href="/contact" className="hidden md:block">
+            <Button variant="ghost">Get in Touch</Button>
           </Link>
-          <Link href="#">
+          <Link href="/apply">
             <Button>Apply Now</Button>
           </Link>
           <Sheet open={open} onOpenChange={setOpen}>
