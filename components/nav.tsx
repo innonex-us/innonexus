@@ -25,7 +25,7 @@ export function Nav() {
       <nav className="container flex items-center justify-between h-16 gap-4 md:h-20">
         <Link href="/" className="flex items-center gap-2 font-bold">
           <span className="sr-only">InnoNexus</span>
-          <img src="/favicon.png" alt="InnoNexus Logo" className="w-8 h-8" />
+          <img src="/logo.png" alt="InnoNexus Logo" className="w-8 h-8" />
           <span className="hidden md:inline-block">InnoNexus</span>
         </Link>
 

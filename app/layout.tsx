@@ -5,6 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Nav } from "@/components/nav"
 import { Footer } from "@/components/footer"
+import { Loading } from "@/components/loading"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,9 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Loading />
           <Nav />
-          {children}
+          <div className="mt-12">{children}</div>
           <Footer />
+          <ScrollToTop />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

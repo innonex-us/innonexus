@@ -30,7 +30,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           const scrollHeight = content.scrollHeight
           const viewportHeight = viewport.clientHeight
           const scrollRange = scrollHeight - viewportHeight
-          self.scroll(scrollRange)
+          self.vars.end = scrollRange
         }
       })
 
@@ -44,7 +44,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         const scrollHeight = content.scrollHeight
         const viewportHeight = viewport.clientHeight
         const scrollRange = scrollHeight - viewportHeight
-        st.scroll(scrollRange)
+        st.vars.end = scrollRange
       }
 
       ScrollTrigger.addEventListener("refresh", onResize)

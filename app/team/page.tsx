@@ -1,48 +1,73 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { FlyingElement } from "@/components/flying-element"
+import Image from "next/image"
+import { motion } from "framer-motion"
 
 const teamMembers = [
   {
-    name: "Jane Doe",
+    name: "Dr. Emily Chen",
     role: "CEO & Founder",
-    bio: "Blockchain veteran with 10+ years of experience in the industry.",
-    image: "/placeholder.svg?height=200&width=200",
+    bio: "Visionary leader with a Ph.D. in Computer Science and 15+ years of experience in tech innovation.",
+    image: "/team/emily-chen.jpg"
   },
   {
-    name: "John Smith",
+    name: "Michael Rodriguez",
     role: "CTO",
-    bio: "Former lead developer at Ethereum, passionate about scalability solutions.",
-    image: "/placeholder.svg?height=200&width=200",
+    bio: "Blockchain and AI expert with multiple patents and a track record of successful product launches.",
+    image: "/team/michael-rodriguez.jpg"
   },
   {
-    name: "Alice Johnson",
-    role: "Head of Investments",
-    bio: "Ex-Goldman Sachs, specializing in Web3 and DeFi investments.",
-    image: "/placeholder.svg?height=200&width=200",
+    name: "Sarah Patel",
+    role: "Head of Product",
+    bio: "Product strategist with an MBA and a history of developing award-winning tech products.",
+    image: "/team/sarah-patel.jpg"
   },
   {
-    name: "Bob Williams",
-    role: "Head of Partnerships",
-    bio: "Seasoned business development expert with a focus on blockchain ecosystems.",
-    image: "/placeholder.svg?height=200&width=200",
-  },
+    name: "David Kim",
+    role: "Lead Developer",
+    bio: "Full-stack developer specializing in scalable web and mobile applications, with expertise in cloud architecture.",
+    image: "/team/david-kim.jpg"
+  }
 ]
 
 export default function TeamPage() {
   return (
-    <div className="container py-24 md:py-32">
-      <h1 className="text-4xl font-bold mb-8">Our Team</h1>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {teamMembers.map((member) => (
-          <Card key={member.name}>
-            <img src={member.image} alt={member.name} className="w-full h-48 object-cover" />
-            <CardHeader>
-              <CardTitle>{member.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="font-semibold mb-2">{member.role}</p>
-              <p className="text-muted-foreground">{member.bio}</p>
-            </CardContent>
-          </Card>
+    <div className="container mx-auto py-12">
+      <motion.h1 
+        className="text-4xl font-bold mb-12 text-center gradient-text"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Meet Our Innovative Team
+      </motion.h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {teamMembers.map((member, index) => (
+          <FlyingElement key={member.name} delay={index * 100}>
+            <Card className="h-full hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-background to-muted">
+              <CardHeader>
+                <motion.div 
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Image 
+                    src={member.image} 
+                    alt={member.name} 
+                    width={200} 
+                    height={200} 
+                    className="rounded-full mx-auto mb-4"
+                  />
+                </motion.div>
+                <CardTitle className="text-xl text-center gradient-text">{member.name}</CardTitle>
+                <p className="text-center text-muted-foreground">{member.role}</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-center">{member.bio}</p>
+              </CardContent>
+            </Card>
+          </FlyingElement>
         ))}
       </div>
     </div>
