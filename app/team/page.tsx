@@ -1,41 +1,41 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FlyingElement } from "@/components/flying-element"
-import Image from "next/image"
-import { motion } from "framer-motion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { FlyingElement } from "@/components/flying-element";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const teamMembers = [
   {
-    name: "Dr. Emily Chen",
-    role: "CEO & Founder",
-    bio: "Visionary leader with a Ph.D. in Computer Science and 15+ years of experience in tech innovation.",
-    image: "/team/emily-chen.jpg"
+    name: "Rokon Uzzaman",
+    role: "Founder & CEO",
+    bio: "Visionary leader with 5+ years in software development and blockchain, driving InnoNexus's strategic growth.",
+    image: "/team/rokon-uzzaman.jpg",
   },
   {
-    name: "Michael Rodriguez",
-    role: "CTO",
-    bio: "Blockchain and AI expert with multiple patents and a track record of successful product launches.",
-    image: "/team/michael-rodriguez.jpg"
+    name: "Mosaeb Hossain",
+    role: "Chief Technology Officer",
+    bio: "Expert in software architecture, blockchain, and machine learning, ensuring scalable and future-ready solutions.",
+    image: "/team/mosaeb-hossain.jpg",
   },
   {
-    name: "Sarah Patel",
-    role: "Head of Product",
-    bio: "Product strategist with an MBA and a history of developing award-winning tech products.",
-    image: "/team/sarah-patel.jpg"
+    name: "Arafat Hossain",
+    role: "Head of Product Development",
+    bio: "Detail-oriented leader ensuring products meet client expectations and industry standards.",
+    image: "/team/arafat-hossain.jpg",
   },
   {
-    name: "David Kim",
-    role: "Lead Developer",
-    bio: "Full-stack developer specializing in scalable web and mobile applications, with expertise in cloud architecture.",
-    image: "/team/david-kim.jpg"
-  }
-]
+    name: "Sanjana Sami",
+    role: "Head of Business Development",
+    bio: "Strategic thinker fostering global partnerships and expanding InnoNexus’s presence.",
+    image: "/team/sanjana-sami.jpg",
+  },
+];
 
 export default function TeamPage() {
   return (
     <div className="container mx-auto py-12">
-      <motion.h1 
+      <motion.h1
         className="text-4xl font-bold mb-12 text-center gradient-text"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,19 +48,21 @@ export default function TeamPage() {
           <FlyingElement key={member.name} delay={index * 100}>
             <Card className="h-full hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-background to-muted">
               <CardHeader>
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <Image 
-                    src={member.image} 
-                    alt={member.name} 
-                    width={200} 
-                    height={200} 
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={200}
+                    height={200}
                     className="rounded-full mx-auto mb-4"
                   />
                 </motion.div>
-                <CardTitle className="text-xl text-center gradient-text">{member.name}</CardTitle>
+                <CardTitle className="text-xl text-center gradient-text">
+                  {member.name}
+                </CardTitle>
                 <p className="text-center text-muted-foreground">{member.role}</p>
               </CardHeader>
               <CardContent>
@@ -71,6 +73,5 @@ export default function TeamPage() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-
